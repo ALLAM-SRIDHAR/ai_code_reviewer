@@ -3,9 +3,9 @@ import google.generativeai as genai
 
 # Load API key
 '''
-with open(r"C:\Users\vamsh\OneDrive\Desktop\sridhar\innomatics\API_KEYS\api key.txt") as f:
-    key = f.read()
-genai.configure(api_key=key)
+#with open(r"C:\Users\vamsh\OneDrive\Desktop\sridhar\innomatics\API_KEYS\api key.txt") as f:
+#    key = f.read()
+#genai.configure(api_key=key)
 '''
 # Retrieve the API key from Streamlit secrets
 api_key = st.secrets["API_KEY"]
