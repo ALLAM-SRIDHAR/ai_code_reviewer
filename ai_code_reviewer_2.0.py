@@ -1,12 +1,18 @@
 import streamlit as st
 import google.generativeai as genai
-
+import os
 # Load API key
-# Retrieve the API key from Streamlit secrets
-api_key = st.secrets["API_KEY"]
+#with open(r"C:\Users\vamsh\OneDrive\Desktop\sridhar\innomatics\API_KEYS\api key.txt") as f:
+#    key = f.read()
+#genai.configure(api_key=key)
+    
+api_key = os.getenv("GENAI_API_KEY")
+if api_key is None:
+    st.error("API key is not set. Please configure the GENAI_API_KEY environment variable.")
+else:
+    genai.configure(api_key=api_key)
 
-# Configure the Generative AI API with the API key
-genai.configure(api_key=api_key)
+#genai.configure(api_key="AIzaSyBg3WQZ_CB0SwnKhC7xtbljK-E6_ILG1rs")
 
 # Initialize the model
 model = genai.GenerativeModel(
